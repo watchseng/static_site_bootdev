@@ -1,8 +1,11 @@
-from textnode import TextNode, TextType
+from os import path, mkdir, listdir
+from shutil import copytree, rmtree
 
 def main():
-    node = TextNode("Test", TextType.LINK, "https://boot.dev")
-    print(node)
+    if path.exists("public"):
+        rmtree("public")
+    copytree("static", "public")
+
 
 if __name__ == "__main__":
     main()
